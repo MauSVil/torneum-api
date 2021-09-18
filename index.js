@@ -110,6 +110,8 @@ app.get('/', (req, res) => {
 app.use('/api', tournamentRoutes);
 app.use('/api', userRoutes);
 
-server.listen(7000, () => {
+const PORT = process.env.PORT || 7000;
+
+server.listen(PORT, () => {
   console.log('Server initialized')
 })
