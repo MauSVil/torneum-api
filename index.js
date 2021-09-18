@@ -102,6 +102,11 @@ const bodyParser = require('body-parser');
 
 mongoDBConnection();
 
+app.get('/', (req, res) => {
+  res.json({
+    data: 'Este es home'
+  })
+})
 app.use('/api', tournamentRoutes);
 app.use('/api', userRoutes);
 
