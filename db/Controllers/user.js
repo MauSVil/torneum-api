@@ -128,6 +128,23 @@ const userSignIn = async (req, res) => {
   }
 }
 
+const getFriendsList = async (req, res) => {
+  const filter = req.body;
+  const regex = new RegExp(filter);
+  if (Object.values(filter).length !== 0) {
+    const friendsList = await User.find({ name: { "$regex": regex, "$options": 'i' } });
+    res.json({
+      error: null,
+      data: friendsList,
+    })
+  } else {
+    res.json({
+      error: null,
+      data: []
+    })
+  }
+};
+
 module.exports = {
   getUser,
   getUsers,
@@ -135,4 +152,5 @@ module.exports = {
   editUser,
   userSignUp,
   userSignIn,
+  getFriendsList,
 }
