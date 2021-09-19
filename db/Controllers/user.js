@@ -128,7 +128,7 @@ const userSignIn = async (req, res) => {
   }
 }
 
-const getFriendsList = async (req, res) => {
+const getUsersList = async (req, res) => {
   const filter = req.body;
   const regex = new RegExp(filter);
   if (Object.values(filter).length !== 0) {
@@ -152,5 +152,5 @@ module.exports = {
   editUser,
   userSignUp,
   userSignIn,
-  getFriendsList,
+  getUsersList,
 }
