@@ -10,7 +10,7 @@ const userSchema = new Schema({
   twitchAccount: String,
   role: { type: String, default: 'player' },
   tournamentsIn: { type: [mongoose.Schema.Types.ObjectId], default: []},
-  friends: { type: [mongoose.Schema.Types.ObjectId], default: []},
+  friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   socketID: String,
   notifications: { type: Object, default: []}
 });

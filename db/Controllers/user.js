@@ -6,7 +6,7 @@ const User = require('../Models/user');
 
 const getUser = (req, res) => {
   const { userLoggedIn: { email } } = req.body;
-  User.find({ email }).exec((err, user) => {
+  User.find({ email }).populate('friends').exec((err, user) => {
     res.json({
       error: null,
       data: user,
