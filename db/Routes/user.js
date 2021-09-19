@@ -1,7 +1,7 @@
 const { validateToken } = require('../../utils');
 
 const express = require('express');
-const UserController = require('../controllers/user')
+const UserController = require('../Controllers/user')
 const api = express.Router();
 
 api.get('/user', validateToken, UserController.getUser)

@@ -1,7 +1,7 @@
 const express = require('express');
 const { validateToken } = require('../../utils');
 
-const TournamentController = require('../controllers/tournaments')
+const TournamentController = require('../Controllers/tournaments')
 const api = express.Router();
 
 api.get('/tournaments', validateToken, TournamentController.getTournaments)
